@@ -3,7 +3,7 @@ import random
 import os
 import argparse
 import time
-from Mininet import MiniNet2, MiniNet
+from Mininet import MiniNet
 from utils.utils import get_parameters
 from Loader import Loader
 import math
@@ -23,7 +23,6 @@ parser.add_argument("--height", help="height", default=256)
 parser.add_argument("--save_model", help="save_model", default=1)
 parser.add_argument("--checkpoint_path", help="checkpoint path", default='./models/camvid/')
 parser.add_argument("--train", help="if true, train, if not, test", default=1)
-parser.add_argument("--mininet_version", help="select mininet version 1 or 2", default=1)
 args = parser.parse_args()
 
 
@@ -46,13 +45,8 @@ n_classes = int(args.n_classes)
 height = int(args.height)
 channels = 3
 checkpoint_path = args.checkpoint_path
+labels_resize_factor = 1
 
-if int(args.mininet_version) == 1:
-    print('This network was designed for 512x256 resolution')
-    labels_resize_factor = 1
-else:
-    print('This network was designed for 1024x512 resolution')
-    labels_resize_factor = 2
 
 labels_w = int(width / labels_resize_factor)
 labels_h = int(height / labels_resize_factor)
@@ -92,10 +86,7 @@ label = tf.placeholder(tf.float32, shape=[None, labels_h, labels_w, n_classes + 
 mask_label = tf.placeholder(tf.float32, shape=[None, labels_h, labels_w], name='mask')
 
 # Initialize neural network
-if int(args.mininet_version) == 1:
-    output = MiniNet(input_x, n_classes, training=training_flag)
-else:
-    output = MiniNet2(input_x, n_classes, is_training=training_flag, upsampling=1)
+output = MiniNet(input_x, n_classes, training=training_flag)
 
 
 # Get shapes
@@ -251,8 +242,6 @@ with tf.Session() as sess:
             segundos_per_epoch = time_second - time_first
             print(str(segundos_per_epoch * epochs_left) + ' seconds to end the training. Hours: ' + str(
                 segundos_per_epoch * epochs_left / 3600.0))
-
-
 
     else:
 
