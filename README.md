@@ -9,11 +9,11 @@ Implementation of the MiniNet model presented on the [ICRA 2019](https://www.icr
 
 ## Training MiniNet
 ```
-python train.py --dataset Datasets/camvid --checkpoint_path models/camvid/ --init_lr 0.001 --batch_size 12 --epochs 500 --n_classes 11 --width 512 --height 256 --train 1 --mininet_version 1
+python train.py --dataset Datasets/camvid --checkpoint_path models/camvid/ --init_lr 0.001 --batch_size 12 --epochs 500 --n_classes 11 --width 512 --height 256 --train 1
 ```
 ## Testing MiniNet
 ```
-python train.py --train 0 --dataset Datasets/camvid --checkpoint_path models/camvid/ --n_classes 11 --width 512 --height 256  --mininet_version 1
+python train.py --train 0 --dataset Datasets/camvid --checkpoint_path models/camvid/ --n_classes 11 --width 512 --height 256 
 ```
 
 ## Citing MiniNet
@@ -27,11 +27,4 @@ If you find Multi-Level Superpixels useful in your research, please consider cit
   year={2019}
 }
 ```
-
-
-## Training MiniNet-v2
-```
-python train.py --dataset Datasets/camvid --checkpoint_path models/camvid/ --init_lr 0.001 --batch_size 12 --epochs 500 --n_classes 11 --width 1024 --height 512 --train 1 --mininet_version 2
-```
-
 
