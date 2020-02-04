@@ -1,7 +1,7 @@
 
 Implementation of the MiniNet model presented on the [ICRA 2019](https://www.icra2019.org).
 
-[Link to the paper (soon)](https://ieeexplore.ieee.org/abstract/document/8793923)
+[Link to the paper](https://ieeexplore.ieee.org/abstract/document/8793923)
 
 ## Requirements
 - Tensorflow
