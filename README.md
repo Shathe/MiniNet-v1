@@ -18,7 +18,7 @@ python train.py --train 0 --dataset Datasets/camvid --checkpoint_path models/cam
 
 ## Citing MiniNet
 
-If you find Multi-Level Superpixels useful in your research, please consider citing:
+If you find MiniNet useful in your research, please consider citing:
 ```
 @inproceedings{alonso2019Mininet,
   title={Enhancing V-SLAM Keyframe Selection with an Efficient ConvNet for Semantic Analysis},
